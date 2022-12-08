@@ -1,4 +1,5 @@
 #!/bin/bash
 
-DAY=$1
-esbuild ./src/day07/main.ts --bundle --platform=node | node
+# DAY=$1
+DAY='day07'
+esbuild ./src/${DAY}/main.ts --bundle --platform=node | node
