@@ -89,7 +89,6 @@ export function part2(input: string): number {
   calculateDirSize(treeHead)
   
   const miminumSize = getAvailableSize(treeHead)
-  debugger
   const total = findDirsGreaterThan(treeHead, miminumSize)
 
   return total[0]
