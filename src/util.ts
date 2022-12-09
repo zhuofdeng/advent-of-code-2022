@@ -6,3 +6,7 @@ export const hasRepeatedCharacters = (text: string): boolean => {
     }
     return false;
 }
+
+export const splitInputInto2DGrid = (input: string): number[][] => {
+    return input.split('\n').map((l) => l.split('').map((n) => parseInt(n)));
+}
