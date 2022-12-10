@@ -1,6 +1,6 @@
 // Advent of Code - Day 9 - Part One
 
-import { headNextToTail, verticalDistance, horizontalDistance } from "./util";
+import { verticalDistance, horizontalDistance } from "./util";
 
 export function part1(input: string): number {
   const instructions = input.split('\n').map((v) => v.split(' '));
