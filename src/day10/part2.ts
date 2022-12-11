@@ -1,8 +1,9 @@
 // Advent of Code - Day 10 - Part Two
 const render = (output: string[], numCycles: number, MAX_CYCLES_PER_ROW: number, x: number): void  =>{
   const lineIndex = Math.floor(numCycles / MAX_CYCLES_PER_ROW);
-  const spritePos = [x-1, x, x+1]
-  if(spritePos.includes(numCycles)) {
+  const spritePos = [x-1, x, x+1];
+
+  if(spritePos.includes(numCycles%MAX_CYCLES_PER_ROW)) {
     output[lineIndex] += '#';
   } else {
     output[lineIndex] += '.';
@@ -20,30 +21,18 @@ const runInstructions = (cycles: number, instructions: string[][]): string[] => 
   const MAX_CYCLES_PER_ROW = 40;
   let output = ["", "", "", "", "", ""];
 
-  while(i < instructions.length) {
+  while(i < instructions.length && numCycles < 240) {
     const instruction = instructions[i];
     if (instruction[0] === 'noop') {
       render(output, numCycles, MAX_CYCLES_PER_ROW, x);
-      numCycles += 1;    
-      // move sprint to the next line since we have reached the end.
-      if (cycleReachedEnd(numCycles, MAX_CYCLES_PER_ROW)) {
-        x += MAX_CYCLES_PER_ROW;
-      }
+      numCycles += 1;
     } else if (instruction[0] === 'addx') {
       render(output, numCycles, MAX_CYCLES_PER_ROW, x);
       numCycles += 1;
-      // move sprint to the next line since we have reached the end.
-      if (cycleReachedEnd(numCycles, MAX_CYCLES_PER_ROW)) {
-        x += MAX_CYCLES_PER_ROW;
-      }
       render(output, numCycles, MAX_CYCLES_PER_ROW, x);
       numCycles += 1;
       if (cycles - numCycles >= 1) {
         x += parseInt(instruction[1]);
-      }
-      // move sprint to the next line since we have reached the end.
-      if (cycleReachedEnd(numCycles, MAX_CYCLES_PER_ROW)) {
-        x += MAX_CYCLES_PER_ROW;
       }
     }
     i++;
