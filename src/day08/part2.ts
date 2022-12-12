@@ -1,6 +1,6 @@
 // Advent of Code - Day 8 - Part Two
 
-import { splitInputInto2DGrid } from "../util";
+import { splitInputInto2DNumberGrid } from "../util";
 
 const getRowScore = (grid: number[][], rowIndex: number, startIndex: number, endIndex: number, currentValue: number): number => {
   const row = grid[rowIndex].slice(startIndex, endIndex);
@@ -37,7 +37,7 @@ const getColumnScore = (grid: number[][], columnIndex: number, startIndex: numbe
 }
 
 export function part2(input: string): number {
-  const grid:number[][] = splitInputInto2DGrid(input);
+  const grid:number[][] = splitInputInto2DNumberGrid(input);
   let scores: number[] = []
   
   for(let row = 1; row < grid[0].length - 1; row++) {
