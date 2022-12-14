@@ -18,7 +18,6 @@ export function part1(input: string): string {
     const move = parseInt(values[1]);
     const from = parseInt(values[3]) - 1;
     const to = parseInt(values[5]) - 1;
-    debugger
     for(let i = 0; i < move; i++) {
       const value = stacks[from].shift()
       if (value) {
