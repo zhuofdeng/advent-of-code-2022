@@ -44,7 +44,6 @@ export function part2(input: string): number {
   let sandPosition = spawnPos;
   let hasSettled = false;
   while(!hasSettled) {
-    debugger
     while(nextPossiblePosition(sandPosition, occupiedList) !== null && sandPosition.y < maxY) {
       sandPosition = nextPossiblePosition(sandPosition, occupiedList) ?? {x: 0, y:0};
     }
